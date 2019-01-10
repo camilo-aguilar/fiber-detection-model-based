@@ -1,12 +1,16 @@
 %% File: Create Final Image
-%  Author: Camilo Aguilar
-%  Input:  Directory 'SUBVOLUMES/sVn' (where n = 1,2,3,...75)
-%          Each folder 'SUBVOLUMES/sVn' has 5 subfolders to store
-%          information: data,fibers,seg,voids,fibers_info
+%  Author:  Camilo Aguilar
+%  Function: Create Final Image with Merged Fibers 
+%            It reads info from each SUBVOLUME
+%            It merges them in a final image and updates a text file
 %
+%  Input:  Directory 'SUBVOLUMES/sVn/fibers_info' (where n = 1,2,3,...75)
+%          
 %  Output: FINAL_RESULT/final_n.tiff
 %          final_n.tiff is an rgb image
 %          where fiber_number = r*256^2 + g*256 + b
+%
+%          FINAL_RESULTS.txt with Fiber info
 %%
 
 tic
@@ -76,11 +80,11 @@ for cube_number=1:75
     for slc=cube_coordinates.slices(1):cube_coordinates.slices(2)
         counter = slc - cube_coordinates.slices(1) + 1;
         
-        if(slc < 9)
+        if(slc < 10)
           name = [directory 'final_000' num2str(slc) '.tif'];
-        elseif(slc < 99)
+        elseif(slc < 100)
           name = [directory 'final_00' num2str(slc) '.tif'];
-        elseif(slc < 999)
+        elseif(slc < 1000)
           name = [directory 'final_0' num2str(slc) '.tif'];
         else
           name = [directory 'final_' num2str(slc) '.tif'];

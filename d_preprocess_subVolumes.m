@@ -1,6 +1,6 @@
 %% File: preprocess_subVolumes
 %  Author: Camilo Aguilar
-%  Input:  Folders SUBVOLUMES/sVn (where n = 1,2,3,...75)
+%  Input:  Folders ../SUBVOLUMES/sVn (where n = 1,2,3,...75)
 %          Each sVn folder must have:
 %               fibers/mer_i.tiff (450 images) (i=1,...,450)
 %               fibers_info/merged_fiber.txt

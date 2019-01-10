@@ -1,18 +1,21 @@
 %% File: merge_subvolumes
 %  Author: Camilo Aguilar
-%  Input:  75 directories with processed Vn.mat files inside
-%  Output: Directory 'SUBVOLUMES/sVn' (where n = 1,2,3,...75)
-%          Each folder 'SUBVOLUMES/sVn' has 5 subfolders to store
-%          information: data,fibers,seg,voids,fibers_info
+%  Function: Merge Overlapping Fibers
+%  Input:  Files 'SUBVOLUMES/sV#/fibers_info/Vn.mat' (where # = 1,2,3,...75)
+%  Output: 
+%          'SUBVOLUMES/sV#/fibers_info/Vn.mat' but with overlapping fibers
+%           merged
 addpath('include');
 
 %% Merge Pre-Procced-subVolumes pairwise
 cube_size = 5;
 blocks_per_height = 3;
 pixel_overlap = 50;
- 
+ANGLE_THRESHOLD = 12;
+
  tic
  merged_fibers = 0;
+
  for SubVn_a=1:75
      disp(['Merging Volume: ' num2str(SubVn_a)]);
      % Load Volume Vo to memory
@@ -100,22 +103,40 @@ pixel_overlap = 50;
                 disp('Inner Merge in V1');
             end
             
-            %Should Check for other angle 
             
             angleY1 = V_a_info(4,fiber1_offset);
-            %angleZ1 = V_a_info(5,fiber1_offset);
+            angleZ1 = V_a_info(5,fiber1_offset);
        
             angleY2 = V_b_info(4,fiber2_offset);
-            % angleZ2 = V_b_info(5, fiber2_offset);
+            angleZ2 = V_b_info(5, fiber2_offset);
+            
+            if(abs(360 - angleY1) < ANGLE_THRESHOLD)
+                angleY1 = abs(360 - angleY1);
+            end
+            
+            if(abs(360 - angleY2) < ANGLE_THRESHOLD)
+                angleY2 = abs(360 - angleY2);
+            end
+            
+            if(abs(360 - angleZ1) < ANGLE_THRESHOLD)
+                angleZ1 = abs(360 - angleZ1);
+            end
+
+            if(abs(360 - angleZ2) < ANGLE_THRESHOLD)
+                angleZ2 = abs(360 - angleZ2);
+            end
+
             ang_dif_Y = abs(angleY1 - angleY2);
-            % ang_dif_Z = abs(angleZ1 - angleZ2);
+            ang_dif_Z = abs(angleZ1 - angleZ2);
+            
             if((ismember(fiber2, merged_values_b)))
                 ang_dif_Y =100;
-                %ang_dif_Z = 100;
+                ang_dif_Z = 100;
             end    
             % HERE IS THE UNION. IF 
             while((ismember(fiber2, merged_values_b)...
-                   || ang_dif_Y > 12 ) ...
+                   || ang_dif_Y > ANGLE_THRESHOLD ...
+                   || ang_dif_Z > ANGLE_THRESHOLD) ...
                    && fiber2 > 0)
                 candidates_fiber2_raw(find(candidates_fiber2_raw == fiber2)) = [];
                 fiber2 = mode(candidates_fiber2_raw);
@@ -123,9 +144,19 @@ pixel_overlap = 50;
                 if(fiber2 > 0)
                     fiber2_offset = find(V_b_info(1,:) == fiber2);
                     angleY2 = V_b_info(4, fiber2_offset);
-                    %angleZ2 = V_b_info(5, fiber2_offset);
+                    angleZ2 = V_b_info(5, fiber2_offset);
+                    
+                    if(abs(360 - angleY2) < ANGLE_THRESHOLD)
+                        angleY2 = abs(360 - angleY2);
+                    end
+                     
+                     if(abs(360 - angleZ2) < ANGLE_THRESHOLD)
+                        angleZ2 = abs(360 - angleZ2);
+                     end
+                    
+                    
                     ang_dif_Y = abs(angleY1 - angleY2);
-                    %ang_dif_Z = abs(angleZ1 - angleZ2);
+                    ang_dif_Z = abs(angleZ1 - angleZ2);
                 else
                     break;
                 end

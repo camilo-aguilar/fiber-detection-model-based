@@ -1,12 +1,14 @@
 %% File: Crop Original Volume
 %  Author: Camilo Aguilar
+%  Function: Crop the original volume into 2050 x 2050 x 1350 imgges
+%
 %  Input:  Original uint16 images located in folder "input_dir"
-%  Output: Cropped uint8 images located in folder "output_dir"
+%  Output: Cropped uint8 images located in folder "CROPPED_FILES"
 %
 %%
 %% Set parameters
 tic
-input_dir = '../INPUT_FILES/';
+input_dir = 'INPUT_FILES/';
 output_dir = 'CROPPED_FILES';
 
 if(~exist(output_dir,'dir'))
@@ -15,8 +17,7 @@ end
 num_images = 1392;
 output_dir = [output_dir '/'];
 
-%% of Start the script
-disp('Starting Cropping');
+%% Start of the script
 parfor i=1:num_images
     if i > 999
         number = num2str(i);
@@ -34,7 +35,6 @@ parfor i=1:num_images
     im = im(200:end-311,280:end-231);
     imc = uint8(round(double(im) / 2^8));
     imwrite(imc, [output_dir name '_cropped.tif']);
-    disp(['Cropped Image: ' num2str(i)]); 
+    
 end
-disp('Finished Cropping');
-toc
+toc 

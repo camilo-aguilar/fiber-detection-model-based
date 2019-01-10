@@ -1,3 +1,20 @@
+%% File: split_subvolumes
+%  Author: Camilo Aguilar
+%  Function: Send 75 scripts to cluster to find fibers using C program.
+%
+%  Input:  
+%          FiberMpp C program
+%          fiber.dat binary file
+%          Folder: SUBVOLUMES/sV# (where # = 1,2,3,...75)
+%          Each sV# Folder must have:
+%                  Data (for input files)
+%                  Seg (presegmentation)
+%                  fibers (for output files)
+%
+%  Output: 
+%           Fibers detected at: SUBVOLUMES/sV#/fibers
+%           Fiber information stored at: SUBVOLUMES/sV#/fibers_info/
+%
 
 
 
