@@ -1,5 +1,5 @@
 # sfrp
-MATLAB SCRIPTS TO extract fibers and voids from short fiber reinforced polymers. (UNSUPERVISED METHODS)  
+Scripts to extract fibers and voids from short fiber reinforced polymers. 
 
 REQUIREMENTS:  
   
