@@ -38,7 +38,7 @@ for SubVn=1:75
     end
     
     % Give Offset from previous volumes
-    Vn = Vn + offset;
+    Vn = Vn + offset .* sign(Vn);
     Vn_info(1,:) = Vn_info(1,:) + offset;
     offset = offset + num_fibers;
     processed_dir = ['SUBVOLUMES/sV' num2str(SubVn) '/fibers_info/'];
