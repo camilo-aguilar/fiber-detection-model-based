@@ -5274,7 +5274,7 @@ void DrawMergeShortID_modified(std::vector<Que3D*>& vp3DStartLong, unsigned char
          //sRGB temptID = sRGB(((i&0xf00)>>8)*10,((i&0xf0)>>4)*10,(i&0xf)*10);
          
          fiber_counter = DrawCylHDirectColor_Modified(&R,&H,&Ty,&Tz,&x,&y,&z,vp3DStartLong[i], ppuch3Dadd, nWidth, nHeight, nLayers, CylinderPool, pPredPool, fiber_counter);
-         outfile_txt << fiber_counter << "," << R << "," << H << "," << Ty << "," << Tz << "," << x << "," << y << "," << z << "\n";
+         outfile_txt << fiber_counter << "," << R << "," << H << "," << 2 * Ty << "," << 2 * Tz << "," << x << "," << y << "," << z << "\n";
       }
       outfile_txt.close();
 }
