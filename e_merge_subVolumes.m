@@ -1,6 +1,7 @@
 %% File: merge_subvolumes
 %  Author: Camilo Aguilar
 %  Function: Merge Overlapping Fibers
+%
 %  Input:  Files 'SUBVOLUMES/sV#/fibers_info/Vn.mat' (where # = 1,2,3,...75)
 %  Output: 
 %          'SUBVOLUMES/sV#/fibers_info/Vn.mat' but with overlapping fibers

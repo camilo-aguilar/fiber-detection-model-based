@@ -1,6 +1,6 @@
 %% File: Crop Original Volume
 %  Author: Camilo Aguilar
-%  Function: Crop the original volume into 2050 x 2050 x 1350 imgges
+%  Function: Crop the original volume into 2050 x 2050 x 1350 volume
 %
 %  Input:  Original uint16 images located in folder "input_dir"
 %  Output: Cropped uint8 images located in folder "CROPPED_FILES"

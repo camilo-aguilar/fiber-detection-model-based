@@ -1,8 +1,10 @@
 %% File: split_subvolumes
 %  Author: Camilo Aguilar
-%  Input:  Cropped uint8 images located in folder "input_dir"
-%  Output: Directory './SUBVOLUMES/sVn' (where n = 1,2,3,...75)
-%          Each folder './SUBVOLUMES/sVn' has 5 subfolders to store
+%  Function: Split the 2050 x 2050 x 1350 volume into 75 overlapping cubes
+%
+%  Input:  Cropped uint8 images located in folder "CROPPED_FILES/"
+%  Output: Directory 'SUBVOLUMES/sVn' (where n = 1,2,3,...75)
+%          Each folder 'SUBVOLUMES/sVn' has 5 subfolders to store
 %          information: data,fibers,seg,voids,fibers_info
 %          This sccript only populates data and seg
 

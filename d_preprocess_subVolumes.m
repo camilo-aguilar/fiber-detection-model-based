@@ -1,5 +1,7 @@
 %% File: preprocess_subVolumes
 %  Author: Camilo Aguilar
+%  Funciton: Assign a number to each detected fiber and store it
+%
 %  Input:  Folders ../SUBVOLUMES/sVn (where n = 1,2,3,...75)
 %          Each sVn folder must have:
 %               fibers/mer_i.tiff (450 images) (i=1,...,450)
