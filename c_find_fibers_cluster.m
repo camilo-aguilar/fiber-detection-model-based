@@ -17,6 +17,11 @@
 %
 
 
+if(~exist('FIBER_SCRIPTS', 'dir' ))
+    mkdir('FIBER_SCRIPTS')
+end
+
+cd FIBER_SCRIPTS
 
 for i=1:75
     fileID = fopen(['myqsub' num2str(i) '.sh'],'w');
@@ -38,3 +43,5 @@ for i=1:75
     
     system(['qsub myqsub' num2str(i) '.sh']);
 end
+
+cd ..
