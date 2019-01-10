@@ -24,7 +24,7 @@ ANGLE_THRESHOLD = 12;
      data_a  = load(dir_a);
      V_a = data_a.Vn;
      V_a_info = data_a.Vn_info;
-     offset_a = data_a.offset;
+     
      
      % Get dimensions
      [rows,cols,slices] = size(V_a);
@@ -39,7 +39,7 @@ ANGLE_THRESHOLD = 12;
         data_b = load(dir_b);
         V_b = data_b.Vn;
         V_b_info = data_b.Vn_info;
-        offset_b = data_b.offset;
+        
     
         [rows_a, cols_a, slices_a, rows_b, cols_b, slices_b] = get_indexes(SubVn_a, Vf_n,rows,cols,slices,pixel_overlap,cube_size);
         
