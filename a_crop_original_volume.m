@@ -35,6 +35,6 @@ parfor i=1:num_images
     im = im(200:end-311,280:end-231);
     imc = uint8(round(double(im) / 2^8));
     imwrite(imc, [output_dir name '_cropped.tif']);
-    
+    disp(['Image ' num2str(i) ' cropped']);
 end
 toc 
