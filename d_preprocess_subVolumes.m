@@ -17,8 +17,8 @@ num_fibers = 0;
 for SubVn=1:75 
     disp(SubVn);
     % Read volumes and text file:
-    txt_dir = ['../SUBVOLUMES/sV' num2str(SubVn) '/fibers_info/merged_fiber.txt'];
-    img_dir = ['../SUBVOLUMES/sV' num2str(SubVn) '/fibers/mer_'];
+    txt_dir = ['SUBVOLUMES/sV' num2str(SubVn) '/fibers_info/merged_fiber.txt'];
+    img_dir = ['SUBVOLUMES/sV' num2str(SubVn) '/fibers/mer_'];
     V = get_subVolume( img_dir, 450);
     fileID = fopen(txt_dir,'r');
     Vn_info = fscanf(fileID,'%d,%f,%f,%f,%f,%f,%f,%f',[8 Inf]);
@@ -39,7 +39,7 @@ for SubVn=1:75
     Vn = Vn + offset;
     Vn_info(1,:) = Vn_info(1,:) + offset;
     offset = offset + num_fibers;
-    processed_dir = ['../SUBVOLUMES/sV' num2str(SubVn) '/fibers_info/'];
+    processed_dir = ['SUBVOLUMES/sV' num2str(SubVn) '/fibers_info/'];
     save([processed_dir 'Vn.mat'],'Vn','Vn_info');
     
 end

@@ -5,6 +5,7 @@
 %
 %%
 %% Set parameters
+tic
 input_dir = '../INPUT_FILES/';
 output_dir = 'CROPPED_FILES';
 
@@ -33,7 +34,7 @@ parfor i=1:num_images
     im = im(200:end-311,280:end-231);
     imc = uint8(round(double(im) / 2^8));
     imwrite(imc, [output_dir name '_cropped.tif']);
-    
+    disp(['Cropped Image: ' num2str(i)]); 
 end
 disp('Finished Cropping');
-   
+toc
