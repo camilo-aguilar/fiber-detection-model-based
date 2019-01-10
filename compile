@@ -1,0 +1,7 @@
+# Scropt to Compile FiberMPP
+echo "Compiling Fiber Detection"
+
+cd Fiber_c_functions
+cmake .
+make
+cp FiberMpp ../
