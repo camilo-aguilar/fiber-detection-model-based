@@ -1,4 +1,4 @@
-# sfrp
+# Short Fiber Reinforced Composite Algorithms
 Scripts to extract fibers and voids from short fiber reinforced polymers. 
 
 REQUIREMENTS:  
