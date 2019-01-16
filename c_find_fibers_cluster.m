@@ -15,8 +15,7 @@
 %           Fibers detected at: SUBVOLUMES/sV#/fibers
 %           Fiber information stored at: SUBVOLUMES/sV#/fibers_info/
 %
-
-
+addpath('Voids_m_functions')
 if(~exist('FIBER_SCRIPTS', 'dir' ))
     mkdir('FIBER_SCRIPTS')
 end
@@ -45,3 +44,8 @@ for i=1:75
 end
 
 cd ..
+
+% Find voids
+parfor i=1:75
+    void_subvolume(i);
+end
