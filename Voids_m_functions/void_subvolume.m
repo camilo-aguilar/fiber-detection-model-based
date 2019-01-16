@@ -13,7 +13,7 @@ function[ ] = void_subvolume( SubVn )
     %  Output: 450 images with: ../SUBVOLUMES/sVn/
     %                           voids/subVn_void_i (i=1,...,450)
     %% Pre-Process Subvolumes and their info
-    addpath('util_functions');
+    addpath('Void_m_functions');
     
     num_images = 450;
     
@@ -33,14 +33,13 @@ function[ ] = void_subvolume( SubVn )
     % Overlap_Threshold = 0.1;
     
     %% Input Images    
-    dir_v = ['../SUBVOLUMES/sV' num2str(SubVn)];
+    dir_v = ['SUBVOLUMES/sV' num2str(SubVn)];
     if(~exist([dir_v '/voids'], 'dir'))
         mkdir([dir_v '/voids']);
     end
     
     volume_voids = zeros(450,450,num_images);
     for Num_z=1:num_images
-        disp(Num_z);
         % Read Images
         if(Num_z) <10
             I = imread([dir_v '/data/subV_000' num2str(Num_z) '.tif']);
