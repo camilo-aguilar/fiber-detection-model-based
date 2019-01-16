@@ -243,12 +243,12 @@ void mexFunction(
 {    
     // Note this function should be called in the outside m-function, supposely, 
     // ac_div_AOS_3D.m, legal tests of the inputs should be carried out there.
-    const int *dims = mxGetDimensions(prhs[0]);   // dimensions of input
+    const int *dims = (int *)mxGetDimensions(prhs[0]);   // dimensions of input
     C3DImage<double> phi(mxGetPr(prhs[0]), dims); // initial levelset
     double delta_t = mxGetScalar(prhs[2]); 
     
     // Generate output.
-    plhs[0] = mxCreateNumericArray(3, dims, mxDOUBLE_CLASS, mxREAL);
+    plhs[0] = mxCreateNumericArray(3, mxGetDimensions(prhs[0]), mxDOUBLE_CLASS, mxREAL);
     C3DImage<double> phi_n(mxGetPr(plhs[0]), dims);
     
     // feature map type 

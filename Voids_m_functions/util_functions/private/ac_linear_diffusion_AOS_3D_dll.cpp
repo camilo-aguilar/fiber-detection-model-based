@@ -228,11 +228,11 @@ void mexFunction(
 )
 {    
     // linear_diffusion_AOS_3D_dll(V, delta_t)
-    const int *dims = mxGetDimensions(prhs[0]);   // dimensions of input
+    const int *dims = (int *)mxGetDimensions(prhs[0]);   // dimensions of input
     double delta_t = mxGetScalar(prhs[1]); 
     
     // Generate output.
-    plhs[0] = mxCreateNumericArray(3, dims, mxDOUBLE_CLASS, mxREAL);
+    plhs[0] = mxCreateNumericArray(3, mxGetDimensions(prhs[0]), mxDOUBLE_CLASS, mxREAL);
     C3DImage<double> g_n(mxGetPr(plhs[0]), dims);
     
     // feature map type 

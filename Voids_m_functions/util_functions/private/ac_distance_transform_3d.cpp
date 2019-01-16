@@ -105,10 +105,10 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray *prhs[])
 	if( mxGetClassID(prhs[0]) != mxUINT8_CLASS )
 		mexErrMsgTxt("The input matrix must be of type UINT8!"); 
 
-	const int *dims = mxGetDimensions(prhs[0]); 
+	const int *dims = (int *)mxGetDimensions(prhs[0]); 
 	unsigned char* pI = (unsigned char*)mxGetPr(prhs[0]); 
 	
-	plhs[0] = mxCreateNumericArray(3, dims, mxDOUBLE_CLASS, mxREAL); 
+	plhs[0] = mxCreateNumericArray(3, mxGetDimensions(prhs[0]), mxDOUBLE_CLASS, mxREAL); 
 	double* pOut = mxGetPr(plhs[0]); 
 	
 
