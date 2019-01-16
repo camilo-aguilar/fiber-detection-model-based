@@ -13,6 +13,11 @@ COMPILE C FILES (this will generate "FiberMpp" executable):
 	-chmod +x compile  
 	-./compile  
 
+    
+COMPILE MEX FILES (this will help the void detection functions):  
+   
+	-compile_void_functions.m (ran from Matlab) 
+
 DOWNLOAD CylinderPool.data:  
   
   	https://purdue0-my.sharepoint.com/:f:/g/personal/aguilarh_purdue_edu/EuNfn57UU5ZLoWVXmMGtmS8Bo-ntwdkaFqEtVYs7uZhGRg?e=aDjur9     
