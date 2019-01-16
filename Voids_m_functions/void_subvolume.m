@@ -15,7 +15,7 @@ function[ ] = void_subvolume( SubVn )
     %% Pre-Process Subvolumes and their info
     addpath('util_functions');
     
-    num_images = 15;
+    num_images = 450;
     
     show_result = 0;
     alpha = 1;
