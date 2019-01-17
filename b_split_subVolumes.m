@@ -2,7 +2,7 @@
 %  Author: Camilo Aguilar
 %  Function: Split the 2050 x 2050 x 1350 volume into 75 overlapping cubes
 %
-%  Input:  Cropped uint8 images located in folder "CROPPED_FILES/"
+%  Input:  Original images located in folder "INPUT_FILES/"
 %  Output: Directory 'SUBVOLUMES/sVn' (where n = 1,2,3,...75)
 %          Each folder 'SUBVOLUMES/sVn' has 5 subfolders to store
 %          information: data,fibers,seg,voids,fibers_info
@@ -14,7 +14,7 @@ if(~exist('SUBVOLUMES', 'dir' ))
     mkdir('SUBVOLUMES')
 end
 %% Set parameters
-input_dir = 'CROPPED_FILES/';
+input_dir = 'INPUT_FILES/';
 
 % These parameters are fixed by now
 VOLUME_SIZE = [2050, 2050, 1392];
@@ -31,21 +31,6 @@ num_levels = 3;
 %   left to right (columnwise)
 %   top to bottom (rowise)
 %   top to bottom (slices)
-
-%%% EXAMPLE:
-%                  ROWS        COLS      SLICES
-% SubVolume 1: [   1:450 ,    1:450,    1:450 ]
-% SubVolume 2: [   1:450 ,  401:850,    1:450 ]
-% SubVolume 3: [   1:450 ,  801:1250,   1:450 ]
-% SubVolume 4: [   1:450 , 1201:1650,   1:450 ]
-% SubVolume 5: [   1:450 , 1601:2050,   1:450 ]
-
-% SubVolume 6: [ 401:850 ,    1:450,    1:450 ]
-% SubVolume 7: [ 401:850 ,  401:850,    1:450 ]
-% SubVolume 8: [ 401:850 ,  801:1250,   1:450 ]
-% SubVolume 9: [ 401:850 , 1201:1650,   1:450 ]
-% SubVolume10: [ 401:850 , 1601:2050,   1:450 ]
-
 coordinates_start = 1:400:1601;
 coordinates_end = 450:400:2050;
 
@@ -55,8 +40,8 @@ for zn=1:num_levels
     for in=1:sqrt(subvolumes_per_level)
         for jn=1:sqrt(subvolumes_per_level)
             
-            x = coordinates_start(in):coordinates_end(in);
-            y = coordinates_start(jn):coordinates_end(jn);
+            x = (coordinates_start(in):coordinates_end(in)) + 200;
+            y = (coordinates_start(jn):coordinates_end(jn)) + 280;
             z = coordinates_start(zn):coordinates_end(zn);
             coordinates(cube_number) = struct('rows', x, 'cols', y, 'slices', z);
             cube_number = cube_number + 1;
@@ -72,7 +57,7 @@ end
 % fibers_info:  Text files and .mat files with processed information
 
 disp('Starting to Process SubVolumes');
-parfor cube_number=1:75
+for cube_number=75:75
     disp(['Starting Volume: ' num2str(cube_number)]);
     disp('Creating Diretories');
     dir_name = ['SUBVOLUMES/sV' num2str(cube_number)];
