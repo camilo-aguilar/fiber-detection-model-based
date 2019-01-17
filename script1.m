@@ -3,7 +3,7 @@
 %%
 
 % Crop the original volume into 2050 x 2050 x 1350 volume
-a_crop_original_volume
+% a_crop_original_volume
 
 % Split the 2050 x 2050 x 1350 volume into 75 overlapping cubes
 b_split_subVolumes
