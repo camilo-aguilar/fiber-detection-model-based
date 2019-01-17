@@ -24,9 +24,9 @@ function [ V ] = crop_subVolume( rows_v, cols_v, slices_v, input_dir)
 
         name = ['STACK' number];
 
-
-        im = imread([input_dir name '_cropped.tif']);
+        im = imread([input_dir name '.tif']);
         im = im(rows_v,cols_v);
+        im = im / 2 ^ 8;
         V(:,:,counter) = im;
         counter = counter + 1;
     end
