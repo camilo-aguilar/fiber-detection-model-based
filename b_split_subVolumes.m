@@ -57,7 +57,7 @@ end
 % fibers_info:  Text files and .mat files with processed information
 
 disp('Starting to Process SubVolumes');
-for cube_number=75:75
+parfor cube_number=1:75
     disp(['Starting Volume: ' num2str(cube_number)]);
     disp('Creating Diretories');
     dir_name = ['SUBVOLUMES/sV' num2str(cube_number)];
