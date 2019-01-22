@@ -1,4 +1,4 @@
-function [ ] = almost_there_function( Num_z)
+function [ ] = voids_2D( Num_z)
 %
 %
 %
