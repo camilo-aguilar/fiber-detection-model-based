@@ -37,4 +37,12 @@ TO RUN:
 	-run script1.m (7 hrs)  
 	-When all the subvolumes have been processed:  
 	-run script2.m (4 hrs)  
+	-run process_results.m to format/display results
 
+OUTPUT:
+
+	-Folders:
+		FINAL_RESULT (Fiber Results)
+		SEGMENTED_VOIDS (Void Results)
+		Processed_Merged_Results (mat file containing fiber/void information)
+	
