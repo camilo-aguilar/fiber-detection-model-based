@@ -29,8 +29,10 @@ SET UP:
 		-Folder "INPUT_FILES" with 1395 uint16 2560x2560 tiff images  
 		-FiberMpp C executable 
 		-CylinderPool.data (Precomputed clynders for C function)  
-		-Folder "include" with 12 .m functions  
-		-8 MATLAB scripts  
+		-Folder "include"
+		-Folder "Voids_m_functions"
+		-Compile both fiber and void functions using compile instructions
+		
 
 TO RUN:  
   
