@@ -37,16 +37,16 @@ sample_pixels = length(find(circle > 0));
      disp(num);
      if num < 10
          fibers = imread(['FINAL_RESULT/final_000' num2str(num) '.tif']);
-         voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+         voids = imread(['SEGMENTED_VOIDS/voids_000' num2str(num) '.tiff']);
      elseif num < 100
          fibers = imread(['FINAL_RESULT/final_00' num2str(num) '.tif']);
-         voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+         voids = imread(['SEGMENTED_VOIDS/voids_00' num2str(num) '.tiff']);
      elseif num < 1000
          fibers = imread(['FINAL_RESULT/final_0' num2str(num) '.tif']);
-         voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+         voids = imread(['SEGMENTED_VOIDS/voids_0' num2str(num) '.tiff']);
      else
          fibers = imread(['FINAL_RESULT/final_' num2str(num) '.tif']);
-         voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+         voids = imread(['SEGMENTED_VOIDS/voids_' num2str(num) '.tiff']);
      end
      
      [rows,cols,channels] = size(fibers);
@@ -175,7 +175,7 @@ end
 
 % Find Fiber Number
 r_fi = double(fibers(:,:,1)) * 256^2;
-g_fi = double(fibers(:,:,2)) * 256;
+g_fi = double(fibers(:,:,2)) * 256;p
 b_fi = double(fibers(:,:,3));
 fiber_num = r_fi+g_fi+b_fi;
 
@@ -190,7 +190,7 @@ sample = uint8(max(circle,0));
 fiber_color = cat(3,r .* sample,g .* sample, b.* sample);
 
 % Merge with void results (voids = red)
-fiber_color(:,:,1) = max(fiber_color(:,:,1),voids);
+fiber_color(:,:,1) = max(fiber_color(:,:,1),voids(201:2250, 281:2330));
 
 % Show/Save image
 imshow(fiber_color);
