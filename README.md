@@ -29,12 +29,22 @@ SET UP:
 		-Folder "INPUT_FILES" with 1395 uint16 2560x2560 tiff images  
 		-FiberMpp C executable 
 		-CylinderPool.data (Precomputed clynders for C function)  
-		-Folder "include" with 12 .m functions  
-		-8 MATLAB scripts  
+		-Folder "include"
+		-Folder "Voids_m_functions"
+		-Compile both fiber and void functions using compile instructions
+		
 
 TO RUN:  
   
 	-run script1.m (7 hrs)  
 	-When all the subvolumes have been processed:  
 	-run script2.m (4 hrs)  
+	-run process_results.m to format/display results
 
+OUTPUT:
+
+	-Folders:
+		FINAL_RESULT (Fiber Results)
+		SEGMENTED_VOIDS (Void Results)
+		Processed_Merged_Results (mat file containing fiber/void information)
+	
