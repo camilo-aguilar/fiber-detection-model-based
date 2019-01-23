@@ -161,16 +161,16 @@ num = round(600*rand(1,1) + 1)+500;
 
 if num < 10
     fibers = imread(['FINAL_RESULT/final_000' num2str(num) '.tif']);
-    voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+    voids = imread(['SEGMENTED_VOIDS/voids_000' num2str(num) '.tiff']);
 elseif num < 100
     fibers = imread(['FINAL_RESULT/final_00' num2str(num) '.tif']);
-    voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+    voids = imread(['SEGMENTED_VOIDS/voids_00' num2str(num) '.tiff']);
 elseif num < 1000
     fibers = imread(['FINAL_RESULT/final_0' num2str(num) '.tif']);
-    voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+    voids = imread(['SEGMENTED_VOIDS/voids_0' num2str(num) '.tiff']);
 else
     fibers = imread(['FINAL_RESULT/final_' num2str(num) '.tif']);
-    voids = imread(['CONTOUR_RESULTS/voids_casselle_' num2str(num) '.tiff']);
+    voids = imread(['SEGMENTED_VOIDS/voids_' num2str(num) '.tiff']);
 end
 
 % Find Fiber Number
