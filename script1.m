@@ -9,5 +9,5 @@
 b_split_subVolumes
 
 % Send 75 scripts to cluster to find fibers using C program
-c_find_fibers_cluster
+c_find_fibers_voids
 
