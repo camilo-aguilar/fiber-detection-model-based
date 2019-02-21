@@ -223,13 +223,11 @@ ANGLE_THRESHOLD = 12;
         % Save Updated Results
         Vn = V_a;
         Vn_info = V_a_info;
-        offset = offset_a;
-        save(dir_a,'Vn', 'Vn_info', 'offset');
+        save(dir_a,'Vn', 'Vn_info');
         
         Vn = V_b;
         Vn_info = V_b_info;
-        offset = offset_b;
-        save(dir_b,'Vn', 'Vn_info', 'offset');
+        save(dir_b,'Vn', 'Vn_info');
         
      end
  end
