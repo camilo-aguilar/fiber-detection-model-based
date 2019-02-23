@@ -144,6 +144,14 @@ ANGLE_THRESHOLD = 12;
                 
                 if(fiber2 > 0)
                     fiber2_offset = find(V_b_info(1,:) == fiber2);
+                    
+                    if(length(fiber2_offset) > 1)
+                      V_b_info(2:end,fiber2_offset(1)) = mean(V_b_info(2:end,fiber2_offset),2);
+                      V_b_info(:,fiber2_offset(2:end)) = [];
+                      fiber2_offset = fiber2_offset(1);
+                      disp('Inner Merge in V2');
+                    end
+
                     angleY2 = V_b_info(4, fiber2_offset);
                     angleZ2 = V_b_info(5, fiber2_offset);
                     
